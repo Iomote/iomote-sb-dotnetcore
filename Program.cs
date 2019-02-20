@@ -20,7 +20,7 @@ namespace iomote_sb_c_sharp_dotnet_core
             
             int queuePos = iomoteSbConnectionString.IndexOf(";EntityPath=");
             QueueName = iomoteSbConnectionString.Substring(queuePos+12);
-            ServiceBusConnectionString = iomoteSbConnectionString.Substring(0, queuePos);
+            ServiceBusConnectionString = iomoteSbConnectionString.Substring(0, queuePos) + ";TransportType=Amqp";
 
             Console.WriteLine("Connection string: " + ServiceBusConnectionString);
             Console.WriteLine("Queue Name: " + QueueName);
